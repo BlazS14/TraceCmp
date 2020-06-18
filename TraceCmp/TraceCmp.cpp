@@ -41,27 +41,25 @@ int main()
     prevold = stoi(temp1, 0, 16);
     prevnew = stoi(temp2, 0, 16);
     cout << line1 << "\n";
-    bool flag = 0;
+    bool flag = 0, align = 0;
     int consecutivecountfail = 0;
     int consecutivecountsuccess = 0;
 
-    while (getline(oldfile, line1) && getline(newfile, line2))
-    {
+    while (getline(oldfile, line1) && getline(newfile, line2)) {
         temp1 = regex_replace(line1, a, "");
         temp2 = regex_replace(line2, a, "");
         currold = stoi(temp1, 0, 16);
         currnew = stoi(temp2, 0, 16);
 
-        if (((currold - prevold) != (currnew - prevnew)) && !flag && consecutivecountsuccess > 5 && consecutivecountfail < 5)
-        {
+        if (currold - prevold > 15 || currnew - prevnew > 15);//check for 15byte offset. Ignore and compare next instrction
+        else if (((currold - prevold) != (currnew - prevnew)) && !flag) {
             cout << "\n Difference found on line " << linecount << "\n";
             outfile << "\n/////" << diffcount << ". Difference HERE/////\n";
             diffcount++;
             flag = 1;
             consecutivecountsuccess = 0;
         }
-        else if (consecutivecountfail > 5)
-        {
+        else{
             flag = 0;
             consecutivecountsuccess++;  //int overflow possible
         }
