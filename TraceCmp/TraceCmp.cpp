@@ -5,15 +5,9 @@
 
 using namespace std;
 
-int main() //////////////Diff on line 2187//////////////////b
+int main(int argc, char* argv[]) //////////////Diff on line 2187//////////////////b
 {
-    string oldpath = "..\\logold.txt", newpath = "..\\lognew.txt", outpath = "..\\out.txt";
-    /*cout << "Unpatched trace file path: ";
-    cin >> oldpath;
-    cout << "\nPatched trace file path: ";
-    cin >> newpath;
-    cout << "\nOutput file path: ";
-    cin >> outpath;*/
+    string oldpath = argv[1], newpath = argv[2], outpath = argv[3];
 
     ofstream outfile;
     ifstream oldfile;
@@ -31,7 +25,7 @@ int main() //////////////Diff on line 2187//////////////////b
     int diffcount = 1;
 
     regex a("^[A-Za-z0-9\\_\\-]+\\+0x");
-    regex b("+0x+[0-9a-fA-F]+");
+    regex b("\\+0x+[0-9a-fA-F]+");
 
     getline(oldfile, line1);
     getline(newfile, line2);
