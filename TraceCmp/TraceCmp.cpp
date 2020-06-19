@@ -2,19 +2,20 @@
 #include <fstream>
 #include <string>
 #include <regex>
+//#include "BlockClass.cpp"
 
 using namespace std;
 
-int main(int argc, char* argv[]) //////////////Diff on line 2187//////////////////b
+int main(int argc, char* argv[]) //////////////Diff on line 2187//////////////////
 {
-    string oldpath = argv[1], newpath = argv[2], outpath = argv[3];
+    string oldPath = argv[1], newPath = argv[2], outPath = argv[3];
 
     ofstream outfile;
     ifstream oldfile;
     ifstream newfile;
-    outfile.open(outpath);
-    oldfile.open(oldpath);
-    newfile.open(newpath);
+    outfile.open(outPath);
+    oldfile.open(oldPath);
+    newfile.open(newPath);
 
 
     int prevnew = 0, prevold = 0;
