@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int main() //////////////Diff on line 2187//////////////////
+int main() //////////////Diff on line 2187//////////////////a
 {
     string oldpath = "..\\logold.txt", newpath = "..\\lognew.txt", outpath = "..\\out.txt";
     /*cout << "Unpatched trace file path: ";
