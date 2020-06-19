@@ -54,7 +54,7 @@ int main() //////////////Diff on line 2187//////////////////
         currold = stoi(temp1, 0, 16);
         currnew = stoi(temp2, 0, 16);
 
-        if (currold - prevold > 15 || currnew - prevnew > 15 || currold - prevold < 1 || currnew - prevnew < 1);//check for 15byte offset. Ignore and compare next instrction
+        if (currold - prevold > 10 || currnew - prevnew > 15 || currold - prevold < 1 || currnew - prevnew < 1);//check for 15byte offset. Ignore and compare next instrction
         else if (((currold - prevold) != (currnew - prevnew)) && !flag) {
             cout << "\n Difference found on line " << linecount << "\n";
             outfile << "\n/////" << diffcount << ". Difference HERE/////\n";
