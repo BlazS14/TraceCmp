@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int main()
+int main() ///////////////////DIFF MORA BIT NA LINE 2187///////////////////////////
 {
     string oldpath, newpath, outpath;
     cout << "Unpatched trace file path: ";
@@ -52,7 +52,13 @@ int main()
         currold = stoi(temp1, 0, 16);
         currnew = stoi(temp2, 0, 16);
 
-        if (((currold - prevold) != (currnew - prevnew)) && !flag && consecutivecountsuccess > 5 && consecutivecountfail < 5)
+        if ((currold - prevold) < 1 || (currnew - prevnew) < 1 || (currold - prevold) > 15 || (currnew - prevnew) > 15)
+        {
+            
+               //do nothing
+        
+        }
+        else if (((currold - prevold) != (currnew - prevnew)) && !flag && consecutivecountsuccess > 8)
         {
             cout << "\n Difference found on line " << linecount << "\n";
             outfile << "\n/////" << diffcount << ". Difference HERE/////\n";
@@ -60,7 +66,7 @@ int main()
             flag = 1;
             consecutivecountsuccess = 0;
         }
-        else if (consecutivecountfail > 5)
+        else
         {
             flag = 0;
             consecutivecountsuccess++;  //int overflow possible
